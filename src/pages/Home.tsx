@@ -6,11 +6,8 @@ import { useCart } from '../context/CartContext';
 import { useProduct } from '../context/ProductContext';
 import { CartItem } from '../context/CartContext';
 import { Product } from '../types';
-<<<<<<< HEAD
 import { useToast } from '../components/ToastProvider';
-=======
 import { waitlistAPI } from '../services/api';
->>>>>>> 38f7848457c76eadd31043ed81909a7ee6727d36
 
 
 
@@ -18,21 +15,18 @@ import { waitlistAPI } from '../services/api';
 export const Home: React.FC = () => {
   const { products } = useProduct();
   const { addToCart } = useCart();
-<<<<<<< HEAD
-   const toast = useToast();
-=======
-   const [waitlistForm, setWaitlistForm] = useState({
-      name: '',
-      email: '',
-      location: '',
-     audience: ''
-   });
-   const [waitlistStatus, setWaitlistStatus] = useState<{ type: 'idle' | 'success' | 'error'; message: string }>({
-      type: 'idle',
-      message: ''
-   });
-   const [isSubmittingWaitlist, setIsSubmittingWaitlist] = useState(false);
->>>>>>> 38f7848457c76eadd31043ed81909a7ee6727d36
+  const toast = useToast();
+  const [waitlistForm, setWaitlistForm] = useState({
+     name: '',
+     email: '',
+     location: '',
+    audience: ''
+  });
+  const [waitlistStatus, setWaitlistStatus] = useState<{ type: 'idle' | 'success' | 'error'; message: string }>({
+     type: 'idle',
+     message: ''
+  });
+  const [isSubmittingWaitlist, setIsSubmittingWaitlist] = useState(false);
 
   // --- Hero Slider Logic ---
   const heroImages = [
@@ -91,32 +85,19 @@ export const Home: React.FC = () => {
     const today = new Date();
     const endDate = new Date();
     endDate.setDate(today.getDate() + 4);
-      const cartItem: CartItem = {
-         id: `${product.id}-${Date.now()}`,
-         product,
-         selectedSize: product.availableSizes[0] || 'One Size',
-         type: 'rent',
-         duration: 4,
-         price: product.rentalPrice,
-         startDate: today.toLocaleDateString(),
-         endDate: endDate.toLocaleDateString()
-      };
-    
-<<<<<<< HEAD
-   addToCart({
-        id: `${product.id}-${Date.now()}`,
-        product: product,
-        selectedSize: product.availableSizes[0] || 'One Size',
-        duration: 4,
-        price: product.rentalPrice,
-        startDate: today.toLocaleDateString(),
-        endDate: endDate.toLocaleDateString()
-    });
-      toast(`${product.name} added to your bag.`, 'success');
-=======
-      addToCart(cartItem);
-    alert(`${product.name} added to your bag.`);
->>>>>>> 38f7848457c76eadd31043ed81909a7ee6727d36
+       const cartItem: CartItem = {
+          id: `${product.id}-${Date.now()}`,
+          product,
+          selectedSize: product.availableSizes[0] || 'One Size',
+          type: 'rent',
+          duration: 4,
+          price: product.rentalPrice,
+          startDate: today.toLocaleDateString(),
+          endDate: endDate.toLocaleDateString()
+       };
+
+       addToCart(cartItem);
+       toast(`${product.name} added to your bag.`, 'success');
   };
 
    const handleWaitlistSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

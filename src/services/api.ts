@@ -161,8 +161,6 @@ export const transactionAPI = {
     apiCall(`/transactions/${id}/withdrawal/process`, { method: 'POST' }),
   transfer: (data: any) => apiCall('/transactions/transfer', { method: 'POST', body: JSON.stringify(data) }),
 };
-
-<<<<<<< HEAD
 // Admin APIs (requires admin-auth token)
 export const adminAPI = {
   getOverview: () => apiCall('/admin/overview'),
@@ -173,11 +171,11 @@ export const adminAPI = {
   getOrders: () => apiCall('/admin/orders'),
   updateOrderStatus: (id: string, data: any) => apiCall(`/admin/orders/${id}/status`, { method: 'PATCH', body: JSON.stringify(data) }),
   deleteOrder: (id: string) => apiCall(`/admin/orders/${id}`, { method: 'DELETE' }),
-=======
+};
+
 // Waitlist APIs
 export const waitlistAPI = {
   join: (data: { name: string; email: string; location?: string; audience?: string }) =>
     apiCall('/waitlist', { method: 'POST', body: JSON.stringify(data) }),
   getAll: () => apiCall('/waitlist'),
->>>>>>> 38f7848457c76eadd31043ed81909a7ee6727d36
 };
